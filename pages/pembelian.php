@@ -11,7 +11,7 @@ include "lib/koneksi.php";
   $level = $hasilQuery ['level'];
 
   $foto = $hasilQuery ['fotop'];
-  $username = $hasilQuery ['username'];
+  $usernamee = $hasilQuery ['username'];
   $tlp = $hasilQuery ['notlp'];
   $detail_alamat = $hasilQuery ['detail_alamat'];
   $nama = $hasilQuery ['nama_lengkap'];
@@ -67,7 +67,7 @@ include "lib/koneksi.php";
     <br>
  
 
-    <div style="text-align:justify;width:75%;  padding:8px;"><img src="https://img.icons8.com/ios-glyphs/20/000000/user-male.png" style="float:left; margin:0 8px 4px 0;" /><p class="h6"><b><?= $username; ?></b></p></div>
+    <div style="text-align:justify;width:75%;  padding:8px;"><img src="https://img.icons8.com/ios-glyphs/20/000000/user-male.png" style="float:left; margin:0 8px 4px 0;" /><p class="h6"><b><?= $usernamee; ?></b></p></div>
     <div style="text-align:justify;width:75%;  padding:8px;"><img src="https://img.icons8.com/metro/20/000000/phone.png" style="float:left; margin:0 8px 4px 0;" /><b><?= $tlp; ?></b></div>
         <div style="text-align:justify;width:75%;  padding:8px;"><img src="https://img.icons8.com/fluent-systems-regular/20/000000/email.png" style="float:left; margin:0 8px 4px 0;" /><b><?= $email; ?></b></div>
         <div style="text-align:justify;width:75%;  padding:8px;"><img src="https://img.icons8.com/material/20/000000/worldwide-location--v1.png" style="float:left; margin:0 8px 4px 0;" /><b><?= $nama_kabupaten; ?></b></div>
@@ -88,9 +88,9 @@ include "lib/koneksi.php";
 
                             <!-- Product Info -->
                             <div class="col-lg-9 col-md-9">
-                                <div class="col-10 product-name large">
-                                 List Pembelian
-                                 <small class="text-primary" >Bergabung tanggal <?= date('M d, y', strtotime($hasilQuery['tgl_gabung'])); ?></small>
+                            <div class="col-10 product-name large">
+                                 <?= $nama; ?>
+                                    <small class="text-primary" >Bergabung tanggal <?= date('M d, y', strtotime($hasilQuery['tgl_gabung'])); ?></small>
                                 </div>
                                 <div class="col-12 px-0">
                                     <hr>
@@ -106,7 +106,7 @@ include "lib/koneksi.php";
 						<th>Handphone</th>
 						<th>Penjual</th>
 						<th>Status</th>
-                       <th style="width: 150px">Aksi</th>
+                       <th style="width: 200px">Aksi</th>
                        </thead>
 					   <?php
     include "lib/config.php";
@@ -179,6 +179,11 @@ else {   ?>
                      button class="btn btn-success">Dalam Proses
                         </button>
                     </a>
+                    &nbsp
+                    <a href ="aksi/aksi_hapus_pembelian.php?id_konfirmasi= <?php echo $kon['id_konfirmasi']; ?>"
+												onClick="return confirm ('Anda yakin ingin menghapus data ini')"><button class="btn btn-danger">Batalkan
+												</button>
+											</a>
                 
                     
 </div>

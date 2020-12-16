@@ -20,9 +20,9 @@
 					<div class="info-box__description">
 						<h2>Produk</h2>
 						<h1><?= $jumlahProduk; ?></h1>
-						<time>12 Minutes ago</time>
+	
 					</div>
-					<a title="Detail Products" class="info-box__btn-detail" href=""><span class="fa fa-arrow-right"></span></a>
+					<a title="Detail Products" class="info-box__btn-detail" href="adminweb.php?module=produk"><span class="fa fa-arrow-right"></span></a>
 				</section>
 			</div>
 			<div class="mb-3 col-md-6 col-lg-4">
@@ -31,9 +31,9 @@
 					<div class="info-box__description">
 						<h2>Brand</h2>
 						<h1><?= $jumlahbrand; ?></h1>
-						<time>2 Minutes ago</time>
+			
 					</div>
-					<a title="Detail Orders" class="info-box__btn-detail" href=""><span class="fa fa-arrow-right"></span></a>
+					<a title="Detail Orders" class="info-box__btn-detail" href="adminweb.php?module=brand"><span class="fa fa-arrow-right"></span></a>
 				</section>
 			</div>
 			<div class="mb-3 col-md-6 col-lg-4">
@@ -42,11 +42,38 @@
 					<div class="info-box__description">
 						<h2>User</h2>
 						<h1><?= $jumlahuser; ?></h1>
-						<time>30 Minutes ago</time>
+						<time>User Penjual : <?= $jumlahuserpen; ?> </time>
+						<time>User Pembeli : <?= $jumlahuserpem; ?> </time>
 					</div>
-					<a title="Detail Members" class="info-box__btn-detail" href=""><span class="fa fa-arrow-right"></span></a>
+					<a title="Detail Members" class="info-box__btn-detail" href="adminweb.php?module=user"><span class="fa fa-arrow-right"></span></a>
 				</section>
 			</div>
+
+			<div class="mb-3 col-md-6 col-lg-4">
+				<section class="info-box info-box--green">
+					<div class="info-box__icon"><span class="fa fas fa-check-circle"></span></div>
+					<div class="info-box__description">
+						<h2>Konfirmasi Rekber</h2>
+						<h1><?= $jumlahkonfirmasi; ?></h1>
+						<time><?= $jumlahbkonfirmasi; ?> Permohonan Rekber Belum Dikonfirmasi</time>
+					</div>
+					<a title="Detail Members" class="info-box__btn-detail" href="adminweb.php?module=rekber"><span class="fa fa-arrow-right"></span></a>
+				</section>
+			</div>
+
+
+			<div class="mb-3 col-md-6 col-lg-4">
+				<section class="info-box info-box--blue">
+					<div class="info-box__icon"><span class="fa fa-check-circle"></span></div>
+					<div class="info-box__description">
+						<h2>Konfirmasi Pembayaran</h2>
+						<h1><?= $jumlahtransaksi; ?></h1>
+						<time><?= $jumlahbtransaksi; ?> Pembayaran Belum Dikonfirmasi</time>
+					</div>
+					<a title="Detail Members" class="info-box__btn-detail" href="adminweb.php?module=pembayaran"><span class="fa fa-arrow-right"></span></a>
+				</section>
+			</div>
+
 
 		
 

@@ -76,6 +76,10 @@ session_start();
                                         <label for="password">Password</label>
                                         <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
                                     </div>
+                                    <div class="form-group">
+                                        <label for="password">Re Password</label>
+                                        <input type="password" id="repassword" name="repassword" class="form-control" placeholder="Password" required>
+                                    </div>
                              
                
           
@@ -195,12 +199,12 @@ session_start();
                                 </div>
                             </div>
                             <div class="col-lg-5 mx-auto mt-4 mt-lg-0">
-                                <form action="#">
+                                <form  method="POST"  action="pencarian.php">
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input type="search" class="form-control border-dark" placeholder="Search..." required>
+                                            <input type="text" class="form-control border-dark" name="search" placeholder="Search..." required>
                                             <div class="input-group-append">
-                                                <button class="btn btn-outline-dark"><i class="fas fa-search"></i></button>
+                                                <button type="submit"  class="btn btn-outline-dark"><i class="fas fa-search"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -224,13 +228,26 @@ session_start();
                                                 <img class="rounded-circle py-1 my-1  "  style="max-width:60%;"  src="images/foto_profile/<?= $foto_session; ?>"
                                                 data-holder-rendered="true" >  <img src="https://img.icons8.com/metro/10/000000/expand-arrow.png"/>
                                                 <div class="dropdown-menu dropdown-menu-right">
-                        <a href="profile.php?id_user=<?=  $id_user_session; ?>" class="dropdown-item">Profile</a>
+                        <a href="profile.php?id_user=<?=  $id_user_session; ?>" class="dropdown-item"><b>Profile</b></a>
                         <div class="dropdown-divider"></div>
-                        <a href=pembelian.php?id_user=<?= $id_user_session; ?>" class="dropdown-item dropdown-item--hover-red">Pembelian <span class="fa fa-sign-out"></span></a>
+                        <?php
+
+if($level_user_session == 'penjual' ) {   ?>     
+           <a href=profile.php?id_user=<?= $id_user_session; ?>" class="dropdown-item dropdown-item--hover-red"><b> Penjualan</b> <span class="fa fa-sign-out"></span></a>
+
+<?php }
+
+else {   ?>     
+         <a href=pembelian.php?id_user=<?= $id_user_session; ?>" class="dropdown-item dropdown-item--hover-red"><b>Pembelian</b> <span class="fa fa-sign-out"></span></a>
+<?php  } ?>  
+
+                    
+                       
+                       
                         <div class="dropdown-divider"></div>
-                        <a href="transaksi.php?id_user=<?= $id_user_session; ?>" class="dropdown-item dropdown-item--hover-red">Transaksi <span class="fa fa-sign-out"></span></a>
+                        <a href="transaksi.php?id_user=<?= $id_user_session; ?>" class="dropdown-item dropdown-item--hover-red"><b>Transaksi</b><span class="fa fa-sign-out"></span></a>
                         <div class="dropdown-divider"></div>
-						<a href="aksi/aksi_logout.php" class="dropdown-item dropdown-item--hover-red">Logout <span class="fa fa-sign-out"></span></a>
+						<a href="aksi/aksi_logout.php" class="dropdown-item dropdown-item--hover-red"><b>Logout</b><span class="fa fa-sign-out"></span></a>
 					</div>
 
 <!--                                                 
@@ -257,37 +274,24 @@ session_start();
                                 <div class="collapse navbar-collapse" id="mainNav">
                                     <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                                         <li class="nav-item active">
-                                            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                                            <a class="nav-link" href="index.php"><b>Home</b><span class="sr-only">(current)</span></a>
                                         </li>
                                         <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" href="#" id="electronics" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Brand</a>
+                                            <a class="nav-link dropdown-toggle" href="#" id="electronics" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><b>Brand</b></a>
+
                                             <div class="dropdown-menu" aria-labelledby="electronics">
-                                                <a class="dropdown-item" href="category.html">Brand1</a>
-                                                <a class="dropdown-item" href="category.html">Brand2</a>
-                                                <a class="dropdown-item" href="category.html">Brand3</a>
+                                            <?php 
+                                        $querybrand = mysqli_query ($koneksi, "select * from tbl_brand" );
+                                        while ($hasilquerybrand = mysqli_fetch_array ($querybrand)){
+                                            $id_brand = $hasilquerybrand ['id_brand'];
+
+                                            ?>
+                                                <a class="dropdown-item" href="produk_by_brand.php?id_brand=<?= $id_brand; ?>"><b><?php echo $hasilquerybrand ['nama_brand']?></b></a>
+                                           <?php } ?>
                                    
                                             </div>
                                         </li>
-                                        <!-- <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" href="#" id="fashion" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Fashion</a>
-                                            <div class="dropdown-menu" aria-labelledby="fashion">
-                                                <a class="dropdown-item" href="category.html">Men's</a>
-                                                <a class="dropdown-item" href="category.html">Women's</a>
-                                                <a class="dropdown-item" href="category.html">Children's</a>
-                                                <a class="dropdown-item" href="category.html">Accessories</a>
-                                                <a class="dropdown-item" href="category.html">Footwear</a>
-                                            </div>
-                                        </li>
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" href="#" id="books" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Books</a>
-                                            <div class="dropdown-menu" aria-labelledby="books">
-                                                <a class="dropdown-item" href="category.html">Adventure</a>
-                                                <a class="dropdown-item" href="category.html">Horror</a>
-                                                <a class="dropdown-item" href="category.html">Romantic</a>
-                                                <a class="dropdown-item" href="category.html">Children's</a>
-                                                <a class="dropdown-item" href="category.html">Non-Fiction</a>
-                                            </div>
-                                        </li> -->
+     
                                     </ul>
                                 </div>
                             </nav>

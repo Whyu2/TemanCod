@@ -29,6 +29,7 @@
 				<div class="col-12">
 					<section class="content-header">
 					<table class= "table table-hover">
+					<thead class="thead-dark">
 						<th>Nama Brand</th>
        				<th style="width: 110px">Aksi</th>
 					   <?php
@@ -55,7 +56,7 @@
 					</tr>
 					<?php 
 					}?>
-				
+					</thead>
 					</table>
 					
 					<div class = "box-footer">

@@ -6,6 +6,7 @@ $username = trim($_POST['username']);
 
 $email = trim($_POST['email']);
 $pass = trim($_POST['password']);
+$repass = trim($_POST['repassword']);
 $level = trim($_POST['level']);
 $status = trim($_POST['status']);
 $tanggal = date('Y-m-d');
@@ -31,6 +32,20 @@ if (
     window.location = '../index.php';
     </script>";
 } else {
+
+
+    if ($pass == $repass) {
+
+
+
+
+
+
+
+
+
+
+
     $querySimpan = mysqli_query($koneksi, "INSERT INTO tbl_user (username,email,password,level,status_user,tgl_gabung)
     VALUES ('$username','$email','$pass','$level','$status','$tanggal')");
 
@@ -44,7 +59,19 @@ if (
         echo    "<script>
         alert('Akun Gagal dibuat, Cek data anda'); 
                     ('Data Gagal Dimasukkan');
-                    window.location = '../register_pilih.php';
+                    window.location = '../index.php#modalr';
                     </script>";
     }
+
+
+
+
+}else {
+    echo "<script>alert('Password yang Anda Masukan Tidak Sama');  ('Data Gagal Dimasukkan');
+    window.location = '../index.php#modalr';
+    </script>";
+    }
+
+
+    
 }

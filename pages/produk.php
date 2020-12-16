@@ -28,6 +28,7 @@ include "lib/koneksi.php";
   $querkab = mysqli_query ($koneksi, "select * from tbl_kabupaten WHERE id_kabupaten = '$idkab'");
   $hasilQuerkab = mysqli_fetch_array($querkab);
   $nama_kabupaten = $hasilQuerkab ['nama_kabupaten'];
+  $tlp = $hasilQueryu ['notlp'];
 
 ?>
 
@@ -64,7 +65,7 @@ include "lib/koneksi.php";
                         $hasilQueryuser = mysqli_fetch_array($queryuser);
                        
                      ?>
-                                        <button   type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalt"><i class="fas fa-cart-plus mr-2"></i><h4><b>Transaksi dengan rekber</b></h4></button>      <?php } ?>
+                                        <button   type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalt"><i class="fas fa-cart-plus mr-2"></i><h4><b>Transaksi dengan rekber ?</b></h4></button>      <?php } ?>
                                     </div>
                                 </div>
                             </div>
@@ -118,6 +119,7 @@ include "lib/koneksi.php";
                                             
                                         <a href="profile.php?id_user=  <?=$id_user?> " class="btn btn-primary   fas fa-store btn-lg btn-block" aria-hidden="true" role="button">  Profile </a>
                                         <div style="text-align:justify;width:75%;  padding:8px;"><img src="https://img.icons8.com/material/20/000000/worldwide-location--v1.png" style="float:left; margin:0 8px 4px 0;" /><b><?= $nama_kabupaten; ?></b></div>
+                                            <div style="text-align:justify;width:75%;  padding:8px;"><img src="https://img.icons8.com/metro/20/000000/phone.png" style="float:left; margin:0 8px 4px 0;" /><b><?= $tlp; ?></b></div>
                                         </div>
                                         <!-- <div class="col-12 mt-3">
                                         <a href="profile.php" class="btn btn-secondary   far fa-comment-dots" aria-hidden="true" role="button"> Chat Penjual</a>

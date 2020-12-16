@@ -27,9 +27,37 @@ if (empty($_SESSION['username']) AND empty($_SESSION['pasword'])) {
 	$hasiluser=mysqli_fetch_array($queryuser);
 	$jumlahuser=$hasiluser['jumlah_user'];
 
+	$queryuserpen=mysqli_query($koneksi, "SELECT COUNT(*) AS jumlah_userp FROM tbl_user where level = 'penjual'");
+	$hasiluserpen=mysqli_fetch_array($queryuserpen);
+	$jumlahuserpen=$hasiluserpen['jumlah_userp'];
+
+	$queryuserpem=mysqli_query($koneksi, "SELECT COUNT(*) AS jumlah_userpem FROM tbl_user where level = 'pembeli'");
+	$hasiluserpem=mysqli_fetch_array($queryuserpem);
+	$jumlahuserpem=$hasiluserpem['jumlah_userpem'];
+
+	$queryuser=mysqli_query($koneksi, "SELECT COUNT(*) AS jumlah_user FROM tbl_user");
+	$hasiluser=mysqli_fetch_array($queryuser);
+	$jumlahuser=$hasiluser['jumlah_user'];
+
 	$querybrand=mysqli_query($koneksi, "SELECT COUNT(*) AS jumlah_brand FROM tbl_brand");
 	$hasilbrand=mysqli_fetch_array($querybrand);
 	$jumlahbrand=$hasilbrand['jumlah_brand'];
+
+	$querykonfirmasi=mysqli_query($koneksi, "SELECT COUNT(*) AS jumlah_konfirmasi FROM tbl_konfirmasi");
+	$hasilkonfirmasi=mysqli_fetch_array($querykonfirmasi);
+	$jumlahkonfirmasi=$hasilkonfirmasi['jumlah_konfirmasi'];
+
+	$querybkonfirmasi=mysqli_query($koneksi, "SELECT COUNT(*) AS jumlah_belumkonfirmasi FROM tbl_konfirmasi WHERE status_konfirmasi = 'BelumDikonfirmasi'");
+	$hasilbkonfirmasi=mysqli_fetch_array($querybkonfirmasi);
+	$jumlahbkonfirmasi=$hasilbkonfirmasi['jumlah_belumkonfirmasi'];
+
+	$querytransaksi=mysqli_query($koneksi, "SELECT COUNT(*) AS jumlah_transaksi FROM tbl_transaksi");
+	$hasiltransaksi=mysqli_fetch_array($querytransaksi);
+	$jumlahtransaksi=$hasiltransaksi['jumlah_transaksi'];
+
+	$querybtransaksi=mysqli_query($koneksi, "SELECT COUNT(*) AS jumlah_belumkonfirmasis FROM tbl_transaksi WHERE status = 'terkirim'");
+	$hasilbtransaksi=mysqli_fetch_array($querybtransaksi);
+	$jumlahbtransaksi=$hasilbtransaksi['jumlah_belumkonfirmasis'];
 ?>
 
 
@@ -104,18 +132,24 @@ if (empty($_SESSION['username']) AND empty($_SESSION['pasword'])) {
 			<li class="sidebar__item"><a href="adminweb.php?module=produk"><span class="fa fa-bar-chart-o"></span> Data Produk</a></li>
 			<li class="sidebar__item"><a class="sidebar__btn-dropdown" href="#"><span class="fa fa-building"></span> Transaksi</a>
 				<ul class="sidebar__dropdown">
-					<li class="sidebar__dropdown-item"><a href="adminweb.php?module=konfirmasi_rekber">Konfirmasi Rekber </a></li>
-					<li class="sidebar__dropdown-item"><a href="adminweb.php?module=konfirmasi_pembayaran">Konfirmasi Pembayaran </a></li>
-					<li class="sidebar__dropdown-item"><a href="register.html">Data produk</a></li>
+					<li class="sidebar__dropdown-item"><a href="adminweb.php?module=rekber">Konfirmasi Rekber </a></li>
+					<li class="sidebar__dropdown-item"><a href="adminweb.php?module=pembayaran">Konfirmasi Pembayaran </a></li>
+		
 				
 				</ul>
 			</li>
-			<li class="sidebar__item"><a href="adminweb.php?module=brand"><span class="fa fa-th-large"></span> Data User</a></li>
+			<li class="sidebar__item"><a class="sidebar__btn-dropdown" href="#"><span class="fa fa-building"></span> Data User</a>
+				<ul class="sidebar__dropdown">
+					<li class="sidebar__dropdown-item"><a href="adminweb.php?module=user_pembeli">User Pembeli </a></li>
+					<li class="sidebar__dropdown-item"><a href="adminweb.php?module=user_penjual">User Penjual</a></li>
+				
+				</ul>
+			</li>
 
 
 			<li class="sidebar__item"><a class="sidebar__btn-dropdown" href="#"><span class="fa fa-building"></span> Cetak Laporan</a>
 				<ul class="sidebar__dropdown">
-					<li class="sidebar__dropdown-item"><a href="login.html">Data User </a></li>
+					<li class="sidebar__dropdown-item"><a href="adminweb.php?module=user">Data User </a></li>
 					<li class="sidebar__dropdown-item"><a href="register.html">Data produk</a></li>
 				
 				</ul>
@@ -139,7 +173,18 @@ if (empty($_SESSION['username']) AND empty($_SESSION['pasword'])) {
             } elseif ($_GET['module'] == 'tambah_brand') {
                 include "module/brand/form_tambah.php";
             } elseif ($_GET['module'] == 'edit_brand') {
-                include "module/brand/form_edit.php";
+				include "module/brand/form_edit.php";
+				
+			} elseif ($_GET['module'] == 'user_pembeli') {
+                include "module/user_pembeli/list_user.php";
+            } elseif ($_GET['module'] == 'edit_status') {
+				include "module/user_pembeli/detail_user.php";
+				
+			} elseif ($_GET['module'] == 'user_penjual') {
+                include "module/user_penjual/list_user.php";
+            } elseif ($_GET['module'] == 'edit_status') {
+                include "module/user_penjual/detail_user.php";
+
 
 			} elseif ($_GET['module'] == 'kabupaten') {
                 include "module/kabupaten/list_kabupaten.php";
@@ -153,12 +198,13 @@ if (empty($_SESSION['username']) AND empty($_SESSION['pasword'])) {
             } elseif ($_GET['module'] == 'detail_produk') {
                 include "module/produk/detail_produk.php";
 
-			} elseif ($_GET['module'] == 'konfirmasi_rekber') {
-				include "module/konfirmasi_rekber/list_konfirm.php";
-			} elseif ($_GET['module'] == 'konfirmasi_pembayaran') {
-				include "module/konfirmasi_pembayaran/list_pembayaran.php";
+			} elseif ($_GET['module'] == 'rekber') {
+				include "module/rekber/list_konfirm.php";
+			} elseif ($_GET['module'] == 'pembayaran') {
+				include "module/pembayaran/list_pembayaran.php";
 			} elseif ($_GET['module'] == 'detail_pembayaran') {
-				include "module/konfirmasi_pembayaran/detail_pembayaran.php";	
+				include "module/pembayaran/detail_pembayaran.php";
+				
 			  
             } else {
                 include "module/home/home.php";

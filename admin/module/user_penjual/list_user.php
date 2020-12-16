@@ -5,7 +5,7 @@
 		<div class="row">
 			<header class="main__header col-12 mb-2">
 				<div class="main__title">
-					<h4>Alamat Kabupaten</h4>
+					<h4>List User Penjual</h4>
 					<ul class="breadcrumb">
 				
 					</ul>
@@ -30,25 +30,25 @@
 					<section class="content-header">
 					<table class= "table table-hover">
 					<thead class="thead-dark">
-						<th>Nama Kabupaten</th>
-       				<th style="width: 110px">Aksi</th>
+						<th>Nama User</th>
+						<th>Tanggal Bergabung</th>
+						<th>Status</th>
+       				<th style="width: 210px">Aksi</th>
 					   <?php
     include "../lib/config.php";
     include "../lib/koneksi.php";
-    $kuerikabupaten=mysqli_query ($koneksi, "select * from tbl_kabupaten");
-    while ($kab=mysqli_fetch_array($kuerikabupaten)){
+    $kueribrand=mysqli_query ($koneksi, "select * from tbl_user WHERE level = 'penjual'");
+    while ($brand=mysqli_fetch_array($kueribrand)){
 		?>
 					<tr>
-						<td><?php echo $kab['nama_kabupaten']; ?></td>
+						<td><?php echo $brand['nama_lengkap']; ?></td>
+						<td><?php echo $brand['tgl_gabung']; ?></td>
+						<td><p class="text-success"><?php echo $brand['status_user']; ?></p></td>
 						<td>
-
 						<div class ="btn-group">
-						<a  href ="<?php echo $admin_url; ?>adminweb.php?module=edit_kabupaten&id_kabupaten=<?php echo $kab ['id_kabupaten']; ?>"> <button class="btn btn-secondary">Edit
-												</button></a> &nbsp;
-												<a href ="<?php echo $admin_url; ?>module/kabupaten/aksi_hapus.php?id_kabupaten=<?php echo $kab ['id_kabupaten']; ?>"
-												onClick="return confirm ('Anda yakin ingin menghapus data ini')"><button class="btn btn-danger">Hapus
-												</button>
-											</a>
+						<a  href ="<?php echo $admin_url; ?>adminweb.php?module=edit_status&id_user=<?php echo $brand ['id_user']; ?>"> <button class="btn btn-secondary">Ubah Status
+												</button></a>&nbsp;
+										
 												 <!-- class="btn btn-danger"><i class='fa fa-power-off'></i></button></a> -->
 											
 						</div>
@@ -61,8 +61,7 @@
 					
 					<div class = "box-footer">
 						<br>
-		<a href="<?php echo $base_url; ?>admin/adminweb.php?module=tambah_kabupaten">
-		<button class="btn btn-primary">Tambah Kabupaten</button></a>
+		
 					</section><!-- main__box -->
 				</div>
 			</div><!-- row -->

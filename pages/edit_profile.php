@@ -17,6 +17,7 @@ if(empty($_SESSION['username']) and empty($_SESSION['password']))
   $email = $hasilQuery ['email'];
   $password = $hasilQuery ['password'];
   $fotop = $hasilQuery ['fotop'];
+  $norek = $hasilQuery ['norek'];
 
 ?>
 
@@ -130,6 +131,13 @@ if(empty($_SESSION['username']) and empty($_SESSION['password']))
                                         }
                                         ?>
                                     </select>
+                                    </div>
+                                 </div>
+                                 <div class="control-group form-group">
+                                    <div class="controls">
+                                        <label><strong>No Rekening </strong><br><i>(Contoh : kode bank + No Rek. )</i></label>
+                                        <input rows="10" cols="100" class="form-control" id="norek" name="norek" placeholder="No Rekening" value="<?= $norek; ?>">
+                                        <p class="help-block"></p>
                                     </div>
                                  </div>
                                  <div class="control-group form-group">

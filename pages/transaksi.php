@@ -49,10 +49,31 @@ include "lib/koneksi.php";
                  
                                      
 <div>
-                    <a class="btn btn-primary btn-lg btn-block" href="edit_profile.php?id_user= <?= $id_user; ?>" role="button"><b>Edit Profile</b></a>
-                    <a class="btn btn-primary btn-lg btn-block" href="pembelian.php?id_user= <?= $id_user; ?>" role="button"><b>Pembelian</b></a>
-                    <a class="btn btn-primary btn-lg btn-block" href="transaksi.php?id_user= <?= $id_user; ?>" role="button"><b>Transaksi</b></a>
-                    </div>
+
+
+<a class="btn btn-primary btn-lg btn-block" href="edit_profile.php?id_user= <?= $id_user; ?>" role="button"><b>Edit Profile</b></a>
+
+<?php
+
+include "lib/koneksi.php";
+
+if($level == 'penjual' ) {   ?>     
+<a class="btn btn-primary btn-lg btn-block" href="profile.php?id_user= <?= $id_user; ?>" role="button"><b>Penjualan</b></a>
+
+<?php }
+
+else {   ?>     
+<a class="btn btn-primary btn-lg btn-block" href="pembelian.php?id_user= <?= $id_user; ?>" role="button"><b>Pembeli</b></a>
+<?php  } ?>  
+
+
+
+
+
+
+
+<a class="btn btn-primary btn-lg btn-block" href="transaksi.php?id_user= <?= $id_user; ?>" role="button"><b>Transaksi</b></a>
+</div>
                 
                 
 
@@ -90,7 +111,7 @@ include "lib/koneksi.php";
                             <div class="col-lg-9 col-md-9">
                                 <div class="col-10 product-name large">
                                  List Transaksi
-                                    <small class="text-primary" >Bergabung tanggal <?= date('M d, y', strtotime($hasilQuery['tgl_gabung'])); ?></small>
+                                  
                                 </div>
                                 <div class="col-12 px-0">
                                     <hr>
@@ -104,8 +125,25 @@ include "lib/koneksi.php";
                                 <thead class="thead-dark">
                                 <th width="130px">ID Transaksi</th>
 						<th width="100px">Tanggal</th>
-						<th width="200px">Nama Handphone</th>
-						<th width="150px">Nama Toko / Penjual</th>
+                        <th width="200px">Nama Handphone</th>
+                        
+
+                        <?php
+
+
+
+if($level == 'penjual' ) {   ?>     
+<th width="150px">Nama Pembeli</th>
+
+<?php }
+
+else {   ?>     
+<th width="150px">Nama Toko / Penjual</th>
+<?php  } ?>  
+
+
+
+						
 			
                         <th width="300px">Status</th>
                         <th width="130px">Aksi</th>
@@ -114,9 +152,31 @@ include "lib/koneksi.php";
 
        			
 					   <?php
-    include "lib/config.php";
-    include "lib/koneksi.php";
-    $kuerikonfirm=mysqli_query ($koneksi, "select * from tbl_transaksi WHERE id_user= '$id_user_session'");
+  
+  if($level == 'penjual' ) {       
+
+    $kuerikonfirm=mysqli_query ($koneksi, "select * from tbl_transaksi WHERE id_penjual= '$id_user_session'");
+  }
+ 
+  elseif($level == 'pembeli' ) {    
+      
+    $kuerikonfirm=mysqli_query ($koneksi, "select * from tbl_transaksi WHERE id_pembeli= '$id_user_session'");
+  }
+ ?>  
+  
+
+
+	
+
+
+
+
+
+
+
+
+<?php
+
 	while ($kon=mysqli_fetch_array($kuerikonfirm))
 
 	{
@@ -130,7 +190,7 @@ include "lib/koneksi.php";
 			$userp=mysqli_fetch_array($querypuser);
 
 		//pembeli
-		$id_userb =$kon['id_user'];
+		$id_userb =$kon['id_pembeli'];
 		$querybuser=mysqli_query ($koneksi, " SELECT * FROM tbl_user WHERE id_user='$id_userb'");
 		$userb=mysqli_fetch_array($querybuser);
 
@@ -140,18 +200,73 @@ include "lib/koneksi.php";
 					<tr>
                     <td><?php echo $kon['id_transaksi']; ?></td>
 						<td ><?php echo $kon['tgl_tansaksi']; ?></td>
-						<td ><?php echo $bar['nama_p']; ?></td>
-						<td ><?php echo $userp['nama_lengkap']; ?></td>
-				
-                   
+                        <td ><?php echo $bar['nama_p']; ?></td>
+                        
 
                         <?php
 
-include "lib/koneksi.php";
+
+
+if($level == 'penjual' ) {   ?>     
+<td ><?php echo $userb['nama_lengkap']; ?></td>
+<?php
+
+
+
+if($kon['status'] == 'diterima') {     ?>    
+    <td ><p>Pembayaran telah diterima admin. Mohon Segera melakuan pengiriman produk ke pembeli.</p>
+                                    <a href ="upload_bukti.php?id_transaksi=<?php echo $kon ['id_transaksi']; ?>"
+                                                                        >
+                                                                        </a>
+                                                </td>
+
+<?php }
+
+elseif($kon['status'] == 'terkirim' ) {   ?>     
+    <td><p>Pembeli Sudah mengirim bukti pembayaran ke admin <br> Tunggu admin mengkonfirmasi pembayaran dari pembeli</p>
+                                   
+                                                </td>
+
+<?php }
+
+elseif($kon['status'] == 'bayar' ) {   ?>     
+     <td>Pembeli belum mengirim bukti pembayaran ke admin
+                                                </td>
+
+                                                <?php }
+
+elseif($kon['status'] == 'selesai' ) {   ?>     
+      <td><p>Barang Sudah diterima, Transaksi selesai</p>
+                                   
+                                   </td>
+<?php  } ?>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php }
+
+else {   ?>     
+    <td ><?php echo $userp['nama_lengkap']; ?></td>
+
+    <?php
+
+
 
 if($kon['status'] == 'diterima') {     ?>    
     <td ><p>Pembayaran telah diterima admin. Admin akan Segera menghubungi penjual untuk segera mengirim barang.</p>
-                                    <a href ="upload_bukti.php?id_transaksi=<?php echo $kon ['id_transaksi']; ?>"
+                                    <a href ="aksi/aksi_selesai.php?id_transaksi=<?php echo $kon ['id_transaksi']; ?>"
                                                                         ><button class="btn btn-primary"> Barang Sudah Diterima
                                                                             </button>
                                                                         </a>
@@ -173,7 +288,29 @@ elseif($kon['status'] == 'bayar' ) {   ?>
                                                                             </button>
                                                                         </a>
                                                 </td>
+ <?php }
+
+elseif($kon['status'] == 'ditolak' ) {   ?>     
+      <td><p>Maaf pembayaran ditolak</p>
+                                   
+                                   </td>
+ <?php }
+
+elseif($kon['status'] == 'selesai' ) {   ?>     
+      <td><p>Barang Sudah diterima, Transaksi selesai</p>
+                                   
+                                   </td>
 <?php  } ?>  
+
+
+    
+<?php  } ?>  
+                        
+					
+				
+                   
+
+                       
 
 
 

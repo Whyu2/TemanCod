@@ -7,6 +7,7 @@ $kabupaten = $_POST['kabupaten'];
 $username = $_POST['username'];
 $email = $_POST['email'];
 $password = $_POST['password'];
+$norek = $_POST['norek'];
 
 $nama_lengkap= $_POST['nama_lengkap'];
 $tlp = $_POST['tlp'];
@@ -27,7 +28,8 @@ $query = mysqli_query($koneksi, "UPDATE tbl_user SET
 										nama_lengkap = '$nama_lengkap',
                                         notlp = '$tlp',
 										detail_alamat = '$detail_alamat',
-										fotop = '$nama_file'
+										fotop = '$nama_file',
+										norek = '$norek'
                                          WHERE
 										 id_user = '$id_user'");
 										 

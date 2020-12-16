@@ -87,7 +87,7 @@
                                  </div>
                                  <div class="control-group form-group">
                                     <div class="controls">
-                                        <label><strong>Harga</strong></label>
+                                        <label><strong>Harga (Harga sudah termasuk ongkir)</strong></label>
                                         <input type="text" class="form-control" name="harga" placeholder="harga" value="">
                                         <p class="help-block"></p>
                                     </div>

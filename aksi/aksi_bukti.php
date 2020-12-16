@@ -24,9 +24,9 @@ $query = mysqli_query($koneksi, "UPDATE tbl_transaksi SET
 										 
 
 										 if ($query){
-											// echo "<script> alert ('Profile berhasil Diperbaharui'); window.location = '../upload_bukti.php?id_transaksi= $id_transaksi' </script>";
+											echo "<script> alert ('Bukti pembayaran berhasil di kirim ke admin'); window.location = '../upload_bukti.php?id_transaksi= $id_transaksi' </script>";
 										}else {
-											// echo "<script> alert ('Akun gagal Diperbaharui'); window.location = '../upload_bukti.php?id_transaksi= $id_transaksi' </script>";
+											echo "<script> alert ('Bukti pembayaran gagal di kirim ke admin'); window.location = '../upload_bukti.php?id_transaksi= $id_transaksi' </script>";
 										}
 
 
