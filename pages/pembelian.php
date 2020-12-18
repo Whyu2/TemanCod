@@ -157,7 +157,7 @@ if(empty($tran['status']) ) {     ?>
 						<div class ="btn-group">
 	
 										
-                                            <a href ="aksi/aksi_hapus_pembelian.php?id_konfirmasi= <?php echo $kon['id_konfirmasi']; ?>"
+                                            <a href ="aksi/aksi_hapus_pembelian.php?id_konfirmasi= <?php echo $kon['id_konfirmasi'];?>&id_user=<?= $id_user ?>"
 												onClick="return confirm ('Anda yakin ingin menghapus data ini')"><button class="btn btn-danger">Batalkan
 												</button>
 											</a>
@@ -180,7 +180,7 @@ else {   ?>
                         </button>
                     </a>
                     &nbsp
-                    <a href ="aksi/aksi_hapus_pembelian.php?id_konfirmasi= <?php echo $kon['id_konfirmasi']; ?>"
+                    <a href ="aksi/aksi_hapus_pembelian.php?id_konfirmasi= <?php echo $kon['id_konfirmasi'];?>&id_user=<?= $id_user ?>"
 												onClick="return confirm ('Anda yakin ingin menghapus data ini')"><button class="btn btn-danger">Batalkan
 												</button>
 											</a>

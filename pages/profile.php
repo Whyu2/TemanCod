@@ -106,7 +106,7 @@ else {   ?>
                             <!-- Product Images -->
 
                             <!-- Product Info -->
-                            <div class="col-lg-8 col-md-9">
+                            <div class="col-lg-9 col-md-9">
                                 <div class="col-10 product-name large">
                                  <?= $nama; ?>
                                     <small class="text-primary" >Bergabung tanggal <?= date('M d, y', strtotime($hasilQuery['tgl_gabung'])); ?></small>
@@ -117,7 +117,7 @@ else {   ?>
                                 <div class="col-12">
                         
                         <div class="row">
-                            <div class="col-12 py-3">
+                            <div class="col-14 py-3">
                                 <div class="row">
                                   
                                 </div>
@@ -141,7 +141,7 @@ else {   ?>
                                                     $queryproduk = mysqli_query ($koneksi, "select * from tbl_produk WHERE id_user = '$id_user'" );
                                                     while ($hasilquery = mysqli_fetch_array ($queryproduk)){
                                                         ?>
-                                            <div class="col-lg-3 col-sm-6 my-3">
+                                            <div class="col-lg-3 col-sm-8 my-3">
                                                     <div class="col-12 bg-white text-center h-100 product-item">
                                                         <div class="row h-100">
                                                             <div class="col-12 p-0 mb-3">
@@ -163,7 +163,18 @@ else {   ?>
                                                                 </span>
                                                             </div>
                                                             <div class="col-12 mb-3 align-self-end">
-                                                                <button class="btn btn-outline-primary" type="button"><i class=" mr-2"></i>Lihat Detail</button>
+                                                            <a href="produk.php?id_produk= <?= $hasilquery['id_produk']; ?> "   button class="btn btn-outline-primary" type="button"><i class=" mr-2"></i>Lihat Detail</a>
+                                                                <?php
+
+include "lib/koneksi.php";
+
+if(empty($_SESSION['username']) and empty($_SESSION['password'])) {     ?>     
+
+<?php }
+
+elseif($_SESSION['username'] == $hasilQuery ['username'] ) {   ?>   
+                                                                  <a href="aksi/aksi_hapus_produk.php?id_produk= <?= $hasilquery['id_produk']; ?>&id_user=<?= $id_user ?>"   button class="btn btn-danger" type="button"><i class=" mr-2"></i>Hapus</a>
+                                                                <?php } ?>
                                                             </div>
                                                         </div>
                                                     </div>

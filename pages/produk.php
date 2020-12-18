@@ -18,6 +18,7 @@ include "lib/koneksi.php";
   $gambar2 = $hasilQuery ['gambar2'];
   $gambar3 = $hasilQuery ['gambar3'];
   $detail = $hasilQuery ['detail'];
+  $tgl_post = $hasilQuery ['tgl_post'];
 
   $queryu = mysqli_query ($koneksi, "select * from tbl_user WHERE id_user = '$id_user'");
   $hasilQueryu = mysqli_fetch_array($queryu);
@@ -77,7 +78,8 @@ include "lib/koneksi.php";
                             <div class="col-lg-5 col-md-9">
                                 <div class="col-12 product-name large">
                                     <?= $nama_produk; ?>
-                                    <small>By <a href="#"> <?= $nama; ?></a></small>
+                                    <small>Dipost Oleh   : <a href="#"> <?= $nama; ?></a></small>
+                                    <small>Tanggal Post: <a href="#"> <?= $tgl_post; ?></a></small>
                                 </div>
                                 <div class="col-12 px-0">
                                     <hr>

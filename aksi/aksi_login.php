@@ -20,9 +20,7 @@ if (!ctype_alnum($username) or !ctype_alnum($pass)) {
   
 
     if ($ketemu > 0) {
-        session_start();
-        $_SESSION['username'] = $r['username'];
-        $_SESSION['password'] = $r['password'];
+      
     
         if ($r ['status_user'] == 'blokir'){
         echo"<script> 
@@ -33,17 +31,28 @@ if (!ctype_alnum($username) or !ctype_alnum($pass)) {
         else if ($r ['status_user'] == 'aktif') {
         if ($r['level'] == 'admin') {
          //login sebagai admin
+         session_start();
+         $_SESSION['username'] = $r['username'];
+         $_SESSION['password'] = $r['password'];
             header("location:../admin/adminweb.php?module=home");
         }
         elseif ($r['nama_lengkap'] == null) {
-         
+            session_start();
+            $_SESSION['username'] = $r['username'];
+            $_SESSION['password'] = $r['password'];
             header("location:../edit_profile.php");
         }
         elseif ($r['level'] == 'penjual') { 
+            session_start();
+            $_SESSION['username'] = $r['username'];
+            $_SESSION['password'] = $r['password'];
             $id_user = $r['id_user'];
               header("location:../profile.php?id_user= $id_user");
         }
         elseif ($r['level'] == 'pembeli') { 
+            session_start();
+            $_SESSION['username'] = $r['username'];
+            $_SESSION['password'] = $r['password'];
             $id_user = $r['id_user'];
               header("location:../pembelian.php?id_user= $id_user");
         }

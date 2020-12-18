@@ -43,7 +43,32 @@
 					<tr>
 						<td><?php echo $brand['nama_lengkap']; ?></td>
 						<td><?php echo $brand['tgl_gabung']; ?></td>
-						<td><p class="text-success"><?php echo $brand['status_user']; ?></p></td>
+						<td>
+							
+						
+						
+						
+						
+						
+						
+						<?php
+
+
+
+if($brand['status_user'] == 'aktif') {     ?>    
+		<p class="text-success">Aktif</p>
+
+<?php }
+
+elseif($brand['status_user'] == 'blokir' ) {   ?> 
+
+<p class="text-danger">Blokir</p>
+
+						<?php  } ?>  
+					
+					
+					
+					</td>
 						<td>
 						<div class ="btn-group">
 						<a  href ="<?php echo $admin_url; ?>adminweb.php?module=edit_status&id_user=<?php echo $brand ['id_user']; ?>"> <button class="btn btn-secondary">Ubah Status

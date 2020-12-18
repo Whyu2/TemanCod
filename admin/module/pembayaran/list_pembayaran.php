@@ -77,7 +77,7 @@
 						<td><?php echo $userp['nama_lengkap']; ?></td>
 						<td><?php echo $userb['nama_lengkap']; ?></td>
 						<td>  <img src="../images/bukti/<?php echo $kon['bukti_bayar'] ?>" class="img-fluid" style="width:50%" size alt="100x100" ">
-							
+				
 						
 						</td>
 

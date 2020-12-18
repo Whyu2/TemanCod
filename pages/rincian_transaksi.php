@@ -35,6 +35,9 @@ $id_kabupatenm = $pem['id_kabupaten'];
 $querykab=mysqli_query ($koneksi, " SELECT * FROM tbl_kabupaten WHERE id_kabupaten='$id_kabupaten'");
 $kab=mysqli_fetch_array($querykab);
 
+$querykabm=mysqli_query ($koneksi, " SELECT * FROM tbl_kabupaten WHERE id_kabupaten='$id_kabupatenm'");
+$kabm=mysqli_fetch_array($querykabm);
+
 
 
 
@@ -176,7 +179,79 @@ else {   ?>
                   
 
                 </table>
-                            <div>
+                <?php
+
+include "lib/koneksi.php";
+
+if($level == 'penjual' ) {   ?>     
+      <div>
+                        <label><strong>Detail Pembeli</strong></label>
+                      <table class="table table-borderless">
+                  
+                        <tr>
+                          <td width ="300px">Nama Pembeli  </td>
+                          <td>:</td>
+                          <td><?php echo $pem['nama_lengkap']; ?></td>
+                        </tr>
+                        <tr>
+                          <td>Email  </td>
+                          <td>:</td>
+                          <td><?php echo $pem['email']; ?></td>
+                        </tr>
+                        <tr>
+                          <td>No Telphone </td>
+                          <td>:</td>
+                          <td><?php echo $pem['notlp']; ?></td>
+                        </tr>
+                        <tr>
+                          <td>Kabupaten</td>
+                          <td>:</td>
+                          <td><?php echo $kabm['nama_kabupaten']; ?></td>
+                        </tr>
+                        <tr>
+                          <td>Detail Alamat  </td>
+                          <td>:</td>
+                          <td><?php echo $pem['detail_alamat']; ?></td>
+                        </tr>
+                      </table>
+                      <label><b>Status Transaksi :</b>
+                      <?php
+
+
+
+if($bar['status'] == 'diterima') {     ?>    
+
+Pembayaran Sudah Diterima Admin<br>
+<li><i>Mohon segera mengirim barang ke pembeli </i> </li>
+
+</ul>
+<?php }
+
+elseif($bar['status'] == 'terkirim' ) {   ?>     
+<i>Pembeli sudah mengirim bukti pembayaran ke admin dan menunggu konfirmasi dari admin</i>
+
+</ul>
+<?php }
+
+elseif($bar['status'] == 'bayar' ) {   ?>     
+<i>Penjual belum melakukan pembayaran<p class="text-danger"><?php echo $bar['tgl_tenggat']; ?></i>
+<?php }
+
+elseif($bar['status'] == 'ditolak' ) {   ?>     
+<i><p class="text-danger">Pembayaran ditolak admin</i>
+
+<?php }
+
+elseif($bar['status'] == 'selesai' ) {   ?>     
+      <td><p>Barang Sudah diterima, Admin akan segera mengirim pembayaran</p>
+                                   
+                                   </td>
+<?php  } ?> 
+
+<?php }
+
+else {   ?>     
+      <div>
                         <label><strong>Detail Penjual</strong></label>
                       <table class="table table-borderless">
                   
@@ -196,17 +271,63 @@ else {   ?>
                           <td><?php echo $pen['notlp']; ?></td>
                         </tr>
                         <tr>
-                          <td>Alamat Penjual  </td>
+                          <td>Kabupaten </td>
                           <td>:</td>
                           <td><?php echo $kab['nama_kabupaten']; ?></td>
                         </tr>
+                        <tr>
+                          <td>Detial Alamat  </td>
+                          <td>:</td>
+                          <td><?php echo $pen['detail_alamat']; ?></td>
+                        </tr>
                       </table>
-                    
                       <label><b>Status Transaksi :</b>
+                      <?php
+
+
+
+if($bar['status'] == 'diterima') {     ?>    
+
+Pembayaran Sudah Diterima Admin<br>
+<center><img src="images/bukti/<?php echo $bar['bukti_bayar'] ?>" class="img-fluid" style="width:25%" size alt="100x100" "><br><p><i>Fokto bukti bayar</i></p></center><ul>
+<li><i>Admin akan segera menghubungi penjual untuk segera mengirim barang </i> </li>
+<li><i>Tunggu Penjual mengirim barang. Apabila barang sudah diterima segera konfirmasi barang sudah diterima</i></li>
+</ul>
+<?php }
+
+elseif($bar['status'] == 'terkirim' ) {   ?>     
+<i>Anda Sudah Melakukan Pembayaran. Tunggu admin mengkonfirmasi pembayaran anda</i>
+<center><img src="images/bukti/<?php echo $bar['bukti_bayar'] ?>" class="img-fluid" style="width:25%" size alt="100x100" "><br><p><i>Fokto bukti bayar</i></p></center><ul>
+<li><i>Tunggu admin mengkonfirmasi pembayaran anda </i> </li>
+</ul>
+<?php }
+
+elseif($bar['status'] == 'bayar' ) {   ?>     
+<i>Anda Belum melakukan transfer, mohon segera transfer ke rekening admin sebelum tanggal<p class="text-danger"><?php echo $bar['tgl_tenggat']; ?></i>
+<?php }
+
+elseif($bar['status'] == 'ditolak' ) {   ?>     
+<i><p class="text-danger">Maaf Pembayaran anda ditolak</i>
+
+<?php }
+
+elseif($bar['status'] == 'selesai' ) {   ?>     
+      <td><p>Barang Sudah diterima, Transaksi selesai</p>
+                                   
+                                   </td>
+<?php  } ?> 
+
+                      
+<?php  } ?>  
+
+
+                      
+                    
+                     
             
                       
           
-                      <?php
+                      <!-- <?php
 
 include "lib/koneksi.php";
 
@@ -239,7 +360,7 @@ elseif($bar['status'] == 'selesai' ) {   ?>
       <td><p>Barang Sudah diterima, Transaksi selesai</p>
                                    
                                    </td>
-<?php  } ?> 
+<?php  } ?>  -->
 
 
 

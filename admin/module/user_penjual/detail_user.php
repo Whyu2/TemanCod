@@ -72,6 +72,8 @@ $queryuser = mysqli_query ($koneksi, "select * from tbl_user WHERE id_user = '$i
 		
 					<div class="col-12 py-3">
                             <table class="table table-borderless">
+                            <form action="../admin/module/user_penjual/aksi_edit.php" method="POST">
+                            <input type="hidden" name = "id_user" value ="<?php echo $id_user; ?>">
                             <label><strong>Detail user</strong></label>
 				<tr>
                     <td>Foto Profile  </td>
@@ -110,11 +112,16 @@ $queryuser = mysqli_query ($koneksi, "select * from tbl_user WHERE id_user = '$i
 
                 </table>
                 <br>
+                <button type="submit" class="btn btn-primary pull-left">Simpan</button>
+
+
+          
 
 					
 
 					
-                    </div>
+</div>
+</form>
 
 
 				</div>

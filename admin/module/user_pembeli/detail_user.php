@@ -70,6 +70,8 @@ $queryuser = mysqli_query ($koneksi, "select * from tbl_user WHERE id_user = '$i
 		
 					<div class="col-12 py-3">
                             <table class="table table-borderless">
+                            <form action="../admin/module/user_pembeli/aksi_edit.php" method="POST">
+                            <input type="hidden" name = "id_user" value ="<?php echo $id_user; ?>">
                             <label><strong>Detail user</strong></label>
 				<tr>
                     <td>Foto Profile  </td>
@@ -102,16 +104,33 @@ $queryuser = mysqli_query ($koneksi, "select * from tbl_user WHERE id_user = '$i
                     <td>:</td>
                     <td><?php echo $detail_alamat ?></td>
                   </tr>
-              
-                  
+                  <tr>
+                  <td>Status user </td>
+                    <td>:</td>
+              		<td>
 
+      <label><input type="radio" name="status" value="aktif" <?php if($hasilQuery['status_user']=='aktif') echo 'checked'?>>Aktif</label><br>
+      <label><input type="radio" name="status" value="blokir" <?php if($hasilQuery['status_user']=='blokir') echo 'checked'?>>Blokir</label>
+    </td>
+
+	
+
+    </tr>
+  
+                  
+                 
                 </table>
-                <br>
+          <br>
+		<button type="submit" class="btn btn-primary pull-left">Simpan</button>
+
+
+          
 
 					
 
 					
                     </div>
+                    </form>
 
 
 				</div>

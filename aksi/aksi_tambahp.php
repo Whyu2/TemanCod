@@ -12,6 +12,7 @@ $kamera = $_POST['kamera'];
 $battrey = $_POST['battrey'];
 $pemakaian = $_POST['pemakaian'];
 $detailp = $_POST['detailp'];
+$tgl_post = date('Y-m-d');
 
 
 $img1 = $_FILES['img1'] ['name'];
@@ -31,20 +32,20 @@ move_uploaded_file($tmp_file_img3, $path_img3);
 
 
 
-$query = mysqli_query($koneksi, "INSERT INTO tbl_produk (id_user,id_brand,harga,nama_p,layar,cpu,kamera,battrey,lama_pemakaian,gambar1,gambar2,gambar3,detail) VALUES
- ('$id_user','$brand','$harga','$nama_produk','$layar','$cpu','$kamera','$battrey','$pemakaian','$img1','$img2','$img3','$detailp')");
+$query = mysqli_query($koneksi, "INSERT INTO tbl_produk (id_user,id_brand,harga,nama_p,layar,cpu,kamera,battrey,lama_pemakaian,gambar1,gambar2,gambar3,detail,tgl_post) VALUES
+ ('$id_user','$brand','$harga','$nama_produk','$layar','$cpu','$kamera','$battrey','$pemakaian','$img1','$img2','$img3','$detailp','$tgl_post')");
 
 
     if ($query) {
         echo    "<script>alert
-        alert('Akun Sudah berhasil dibuat :D, Silahkan login'); 
+        alert('Produk berhasil di posting'); 
         window.location = '../index.php#modalr';
         </script>";
     } else {
         echo    "<script>
-        alert('Akun Gagal dibuat, Cek data anda'); 
+        alert('Produk berhasil di posting'); 
                     ('Data Gagal Dimasukkan');
-                    window.location = '../register_pilih.php';
+                    window.location = '../index.php#modalr';
                     </script>";
     }
 
