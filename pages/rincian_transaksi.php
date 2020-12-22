@@ -215,6 +215,7 @@ if($level == 'penjual' ) {   ?>
                         </tr>
                       </table>
                       <label><b>Status Transaksi :</b>
+              
                       <?php
 
 

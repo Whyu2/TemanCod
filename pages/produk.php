@@ -64,9 +64,23 @@ include "lib/koneksi.php";
 
                         $queryuser = mysqli_query ($koneksi, "select * from tbl_user WHERE id_user = '$id_user_session'");
                         $hasilQueryuser = mysqli_fetch_array($queryuser);
-                       
+                        $level =    $hasilQueryuser['level'];                      
                      ?>
-                                        <button   type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalt"><i class="fas fa-cart-plus mr-2"></i><h4><b>Transaksi dengan rekber ?</b></h4></button>      <?php } ?>
+
+<?php
+
+
+
+if($level == 'penjual' ) {   ?>     
+     
+
+<?php }
+
+else {   ?>   
+<br>  
+     <button   type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalt"><i class="fas fa-cart-plus mr-2"></i><h5><b>Transaksi dengan rekber ?</b></h5></button>      <?php } ?>
+<?php  } ?>  
+                                      
                                     </div>
                                 </div>
                             </div>

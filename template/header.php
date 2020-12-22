@@ -81,14 +81,22 @@ session_start();
                                         <input type="password" id="repassword" name="repassword" class="form-control" placeholder="Password" required>
                                     </div>
                              
-               
-          
-                    <tr>
-                    <td><input type="radio" name="level" value="penjual" checked />Penjual</td>
-                </tr>
-                <tr>
-                    <td><input type="radio" name="level" value="pembeli"/>pembeli</td>
-                </tr>
+               <label>Pilih Akun </label>
+                                    <div class="form-check">
+             
+         <input class="form-check-input" type="radio" name="level" value="penjual" checked />
+         <label class="form-check-label" for="gridRadios1">
+            Penjual
+          </label>
+        </div>
+        <div class="form-check">
+             
+             <input class="form-check-input" type="radio" name="level" value="pembeli"  />
+             <label class="form-check-label" for="gridRadios1">
+                Pembeli
+              </label>
+            </div>
+                  
                              
                                     <input type="hidden" id="status" name="status" value="aktif"  >
                                   

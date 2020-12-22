@@ -52,18 +52,18 @@ include "lib/koneksi.php";
 
                     <a class="btn btn-primary btn-lg btn-block" href="edit_profile.php?id_user= <?= $id_user; ?>" role="button"><b>Edit Profile</b></a>
 
-                    <?php
+                                                <?php
 
-include "lib/koneksi.php";
+                            include "lib/koneksi.php";
 
-if($level == 'penjual' ) {   ?>     
-        <a class="btn btn-primary btn-lg btn-block" href="profile.php?id_user= <?= $id_user; ?>" role="button"><b>Penjualan</b></a>
+                            if($level == 'penjual' ) {   ?>     
+                                    <a class="btn btn-primary btn-lg btn-block" href="profile.php?id_user= <?= $id_user; ?>" role="button"><b>Penjualan</b></a>
 
-<?php }
+                            <?php }
 
-else {   ?>     
-       <a class="btn btn-primary btn-lg btn-block" href="pembelian.php?id_user= <?= $id_user; ?>" role="button"><b>Pembelian</b></a>
-<?php  } ?>  
+                            else {   ?>     
+                                <a class="btn btn-primary btn-lg btn-block" href="pembelian.php?id_user= <?= $id_user; ?>" role="button"><b>Pembelian</b></a>
+                            <?php  } ?>  
 
 
 

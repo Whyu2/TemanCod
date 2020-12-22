@@ -72,6 +72,7 @@ if (empty($_SESSION['username']) AND empty($_SESSION['pasword'])) {
 
 	<title>Dashboard . Reza Admin</title>
 
+
     <!-- Social network metas -->
     <meta name="author" content="@FikkriReza">
     <meta name="description" content="Open source responsive admin template with Bootstrap framework">
@@ -94,6 +95,8 @@ if (empty($_SESSION['username']) AND empty($_SESSION['pasword'])) {
 	<link rel="stylesheet" type="text/css" href="dist/css/reza-admin.min.css">
 	<!-- Favicon -->
 	<link rel="icon" href="dist/img/Reza_Admin.ico">
+	<link rel="stylesheet" href="date/dist/css/bootstrap-datepicker.css">
+
 </head>
 <body>		
 	<!-- navbar -->
@@ -112,8 +115,8 @@ if (empty($_SESSION['username']) AND empty($_SESSION['pasword'])) {
 						<span>Admin</span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right">
-						<a href="" class="dropdown-item">Settings Account</a>
-						<div class="dropdown-divider"></div>
+						<!-- <a href="" class="dropdown-item">Settings Account</a> -->
+						<!-- <div class="dropdown-divider"></div> -->
 						<a href="../aksi/aksi_logout.php" class="dropdown-item dropdown-item--hover-red">Logout <span class="fa fa-sign-out"></span></a>
 					</div>
 				</li>
@@ -149,8 +152,8 @@ if (empty($_SESSION['username']) AND empty($_SESSION['pasword'])) {
 
 			<li class="sidebar__item"><a class="sidebar__btn-dropdown" href="#"><span class="fa fa-building"></span> Cetak Laporan</a>
 				<ul class="sidebar__dropdown">
-					<li class="sidebar__dropdown-item"><a href="adminweb.php?module=user">Data User </a></li>
-					<li class="sidebar__dropdown-item"><a href="register.html">Data produk</a></li>
+					<li class="sidebar__dropdown-item"><a href="adminweb.php?module=cetak_transaksi">Cetak Transaksi </a></li>
+		
 				
 				</ul>
 			</li>
@@ -158,7 +161,7 @@ if (empty($_SESSION['username']) AND empty($_SESSION['pasword'])) {
 	
 			</li>
 
-			<li class="sidebar__item sidebar__item--header mt-3">Important for read</li>
+	
 		
 		</ul>
 	</aside>
@@ -204,6 +207,12 @@ if (empty($_SESSION['username']) AND empty($_SESSION['pasword'])) {
 				include "module/pembayaran/list_pembayaran.php";
 			} elseif ($_GET['module'] == 'detail_pembayaran') {
 				include "module/pembayaran/detail_pembayaran.php";
+			
+			} elseif ($_GET['module'] == 'cetak_transaksi') {
+				include "module/cetak_transaksi/list_transaksi.php";
+			} elseif ($_GET['module'] == 'detail_transaksi') {
+				include "module/cetak_transaksi/detail_transaksi.php";
+	
 				
 			  
             } else {
@@ -313,8 +322,29 @@ if (empty($_SESSION['username']) AND empty($_SESSION['pasword'])) {
 			});
 		}
 	</script>
+		<script src="date/dist/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript">
+		$(function() {
+		  $("#dari").datepicker({
+		format : 'yyyy-mm-dd',
+		autoclose: true,
+		todayHightlight: true,
+		  });
+		});
+		</script>
+			<script type="text/javascript">
+		$(function() {
+		  $("#sampai").datepicker({
+			format : 'yyyy-mm-dd',
+		autoclose: true,
+		todayHightlight: true,
+		  });
+		});
+		</script>
 </body>
 </html>
+
 <?php
 }
 ?>
+

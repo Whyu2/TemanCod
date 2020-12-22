@@ -28,7 +28,8 @@
 
 				<div class="col-12">
 					<section class="content-header">
-					<table class= "table table-hover ">
+					<table class="table table-hover ">
+					<thead class="thead-dark">
 						<th>Nama Handphone</th>
 						<th>Tanggal Posting</th>
 						<th >Harga</th>
@@ -63,7 +64,7 @@
 					</tr>
 					<?php 
 					}?>
-				
+					</thead>
 					</table>
 
 					
