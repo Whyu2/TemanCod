@@ -47,13 +47,13 @@ session_start();
 
                                     if(empty($_SESSION['username']) and empty($_SESSION['password'])) { ?>
                                     <li>
-                                    <button   type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalr"><i class="fas fa-user-edit mr-2"></i>Daftar</button>
+                                    <button   type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalr"><i class="fas fa-user-edit mr-2"></i>Register</button>
                  
                                     <div class="modal fade" id="modalr" role="dialog" arialabelledby = "modalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h3 class="modal-tittle">Daftar</h3>
+                                                                <h3 class="modal-tittle">Register</h3>
                                                                 <button type="button" class="close" data-dismiss = "modal" aria-label="Close">
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>
@@ -140,10 +140,7 @@ session_start();
                                                                             <input type="password" id="password" name="password" class="form-control" required>
                                                                         </div>
                                                                         <div class="form-group">
-                                                                            <div class="form-check">
-                                                                                <input type="checkbox" id="remember" class="form-check-input">
-                                                                                <label for="remember" class="form-check-label ml-2">Remember Me</label>
-                                                                            </div>
+                                                                  
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <button type="submit" class="btn btn-outline-dark">Login</button>

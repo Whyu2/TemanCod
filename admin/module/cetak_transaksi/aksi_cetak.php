@@ -108,12 +108,15 @@ $t = 0;
 
   
         <?php 
+           $jmlh_total_produk[$t] = $bar['harga'];
         $jmlh_total[$t] = $total;
+        $jmlh_total_rekber[$t] = 5000;
         $t++;
     } ?>
         </tr>
-        <th colspan="7">Total : </th>
-
+        <th colspan="5">Total : </th>
+        <td width ="100">Rp. <?php echo number_format(array_sum($jmlh_total_produk),"0", ".", "."); ?></td> 
+        <td width ="100">Rp. <?php echo number_format(array_sum($jmlh_total_rekber),"0", ".", "."); ?></td> 
         <td width ="100">Rp. <?php echo number_format(array_sum($jmlh_total),"0", ".", "."); ?></td> 
                         </tr>
 

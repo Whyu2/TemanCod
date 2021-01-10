@@ -115,7 +115,7 @@ if (empty($_SESSION['username']) AND empty($_SESSION['pasword'])) {
 						<span>Admin</span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right">
-						<!-- <a href="" class="dropdown-item">Settings Account</a> -->
+						<a href="adminweb.php?module=admin" class="dropdown-item">Edit akun admin</a>
 						<!-- <div class="dropdown-divider"></div> -->
 						<a href="../aksi/aksi_logout.php" class="dropdown-item dropdown-item--hover-red">Logout <span class="fa fa-sign-out"></span></a>
 					</div>
@@ -212,9 +212,10 @@ if (empty($_SESSION['username']) AND empty($_SESSION['pasword'])) {
 				include "module/cetak_transaksi/list_transaksi.php";
 			} elseif ($_GET['module'] == 'detail_transaksi') {
 				include "module/cetak_transaksi/detail_transaksi.php";
-	
 				
-			  
+			} elseif ($_GET['module'] == 'admin') {
+				include "module/admin/detail_user.php";
+
             } else {
                 include "module/home/home.php";
             }

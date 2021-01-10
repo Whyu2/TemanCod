@@ -35,15 +35,15 @@
 						<th width="150px" >Id transaksi</th>
 						<th width="150px">Tanggal</th>
 		
-						<th width="250px">Nama Penjual / Toko</th>
-						<th width="150px">Nama Pembeli</th>
-						<th width="300px">Foto  Bukti Pembayaran</th>
+						<th width="400px">Nama Penjual / Toko</th>
+						<th width="400px">Nama Pembeli</th>
+						<th width="400px">Foto  Bukti Pembayaran</th>
 						
 			
 			
 				
 
-       				<th colspan="2">Aksi</th>
+       				<th width="400px" colspan="2">Aksi</th>
 					   <?php
     include "../lib/config.php";
     include "../lib/koneksi.php";
@@ -170,7 +170,7 @@ elseif($kon['status'] == 'selesai' ) {   ?>
 
 
 					
-					<p class="text-dark">Status : <p class="text-success">Transaksi telah selesai. barang sudah diterima pembeli. Mohon segera melakukan transfer ke user penjual</p></p>
+					<p class="text-dark">Status : <p class="text-success">Transaksi telah selesai. </p></p>
 					</td>   
 
 

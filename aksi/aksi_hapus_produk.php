@@ -16,7 +16,7 @@ if (empty($_SESSION['username'])AND empty ($_SESSION['passuser'])) {
     if ($queryHapus){
         echo "<script> alert ('Produk Berhasil dihapus'); window.location ='../profile.php?id_user=$id_user';</script>";
     }else {
-        echo "<script> alert ('Produk Kabupaten gagal dihapus'); window.location ='$admin_url'+ 'adminweb.php?module=kabupaten';</script>";
+        echo "<script> alert ('Produk gagal dihapus karena masih ada transaksi dengan produk tersebut'); window.location ='../profile.php?id_user=$id_user';</script>";
     }
 }
     ?>

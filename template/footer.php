@@ -30,7 +30,7 @@
                                         <h4>Who are we?</h4>
                                     </div>
                                     <div class="col-12 text-justify">
-                                        <p>Website untuk jual beli handphone bekas</p>
+                                        <p>Website untuk jual beli handphone bekas, bisa ketemuan langsung atau kirim kirim</p>
                                     </div>
                                 </div>
                             </div>
@@ -42,13 +42,11 @@
                                     <div class="col-12">
                                         <ul class="footer-nav">
                                             <li>
-                                                <a href="#">Home</a>
+                                                <a href="index.php">Home</a>
                                             </li>
+                                      
                                             <li>
-                                                <a href="#">Contact Us</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">About Us</a>
+                                                <a href="index.php#footer">About Us</a>
                                             </li>
                                             <!-- <li>
                                                 <a href="#">Privacy Policy</a>
@@ -86,7 +84,7 @@
                                     </div> -->
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-sm-6 text-center text-sm-left">
+                            <!-- <div class="col-lg-3 col-sm-6 text-center text-sm-left">
                                 <div class="row">
                                     <div class="col-12 text-uppercase">
                                         <h4>Saran untuk website</h4>
@@ -102,7 +100,7 @@
                                         </form>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </footer>

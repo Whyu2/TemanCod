@@ -32,10 +32,11 @@
 					<input type="hidden" name = "status" value ="Disetujui">
 					<table class= "table table-hover">
 					<thead class="thead-dark">
-						<th>Tanggal</th>
+					<th  width="150px">Id konfirmasi</th>
+						<th width="150px">Tanggal</th>
 						<th>Handphone</th>
-						<th>Penjual</th>
-						<th>Pembeli</th>
+						<th width="150px">Penjual</th>
+						<th width="150px">Pembeli</th>
 						<th>Status</th>
 				
 
@@ -76,6 +77,7 @@
 		?>
 
 					<tr>
+					<td><?php echo $kon['id_konfirmasi']; ?></td>
 						<td><?php echo $kon['date']; ?></td>
 						<td><?php echo $bar['nama_p']; ?></td>
 						<td><?php echo $userp['nama_lengkap']; ?></td>

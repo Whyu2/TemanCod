@@ -41,7 +41,7 @@
                             <div class="col-12 py-3">
                                 <div class="row">
                                     <div class="col-12 text-left text-uppercase">
-                                        <h2>PRODUK POPULER</h2>
+                                        <h2>LIST PRODUK</h2>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -56,7 +56,7 @@
                                             <div class="row h-100">
                                                 <div class="col-12 p-0 mb-3">
                                                     <a href="produk.php?id_produk= <?= $hasilquery['id_produk']; ?>"> 
-                                                    <img  src="images/produk/<?php echo $hasilquery['gambar1']?>" class="img-fluid " style="width:100%" width="80%" >
+                                                    <img  src="images/produk/<?php echo $hasilquery['gambar1']?>" class="img-fluid "  style="max-width:100%;"  >
                                                     </a>
                                                 </div>
                                                 <div class="col-12 mb-3">

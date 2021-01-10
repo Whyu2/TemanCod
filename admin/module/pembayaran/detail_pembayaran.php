@@ -12,6 +12,7 @@ $bar=mysqli_fetch_array($queryp);
 $id_produk = $bar ['id_produk'];
 $id_pembeli = $bar['id_pembeli'];
 $id_penjual = $bar['id_penjual'];
+$ket = $bar['keterangan'];
 
 
 //Penjual
@@ -208,34 +209,39 @@ $queryuser = mysqli_query ($koneksi, "select * from tbl_user WHERE id_user = '$i
 
 if($bar['status'] == 'diterima') {     ?>    
 
-Pembayaran sudah dikonfirmasi, Segera hubungi penjual untuk mengirim barang <br><br>
+<p>Pembayaran sudah dikonfirmasi, Segera hubungi penjual untuk mengirim barang <br><br><p>
 <center><img src="../images/bukti/<?php echo $bar['bukti_bayar'] ?>" class="img-fluid" style="width:80%" size alt="100x100" "><br><p><i>Fokto bukti bayar</i></p></center><ul>
 
 </ul>
 <?php }
 
 elseif($bar['status'] == 'terkirim' ) {   ?>     
-<i>Bukti pembyaran belum dikonfirmasi</i>
+<p>Bukti pembyaran belum dikonfirmasi</p>
+
+<center><img src="../images/bukti/<?php echo $bar['bukti_bayar'] ?>" class="img-fluid" style="width:80%" size alt="100x100" "><br><p><i>Fokto bukti bayar</i></p></center><ul> 
 
 <?php }
 
 elseif($bar['status'] == 'bayar' ) {   ?>     
-<i>Pembeli melakukan transfer<p class="text-danger"><?php echo $bar['tgl_tenggat']; ?></i>
+<i>Pembeli akan melakukan transfer sebelum tanggal<p class="text-danger"><?php echo $bar['tgl_tenggat']; ?></i>
+<center><img src="../images/bukti/<?php echo $bar['bukti_bayar'] ?>" class="img-fluid" style="width:80%" size alt="100x100" "><br><p><i>Fokto bukti bayar</i></p></center><ul> 
+<i>Pembeli akan melakukan transfer sebelum tanggal<p class="text-danger"><?php echo $bar['tgl_tenggat']; ?></i>  
 <?php }
 
 elseif($bar['status'] == 'ditolak' ) {   ?>  
 <i><p class="text-danger">Pembayaran ditolak</i>
+
 <center><img src="../images/bukti/<?php echo $bar['bukti_bayar'] ?>" class="img-fluid" style="width:80%" size alt="100x100" "><br><p><i>Fokto bukti bayar</i></p></center><ul>   
 
 <?php }
 
 elseif($bar['status'] == 'selesai' ) {   ?>  
-<i><br><p><i>Transaksi telah selesai. barang sudah diterima pembeli. Mohon segera melakukan transfer ke user penjual</i> <br>No rekening : <b><?php echo $pem['norek']; ?></b></p></i>
+<i><br><p><i>Transaksi telah selesai. barang sudah diterima pembeli. Mohon segera melakukan transfer ke user penjual</i> <br>No rekening : <b><?php echo $pen['norek']; ?></b></p></i>
 <center><img src="../images/bukti/<?php echo $bar['bukti_bayar'] ?>" class="img-fluid" style="width:80%" size alt="100x100" ">><br><p><i>Fokto bukti bayar</i></p></center><ul>  
 <?php  } ?>   
 
 
-
+<label><b>Keterangan dari pembeli :</b> <?= $ket; ?></label>
 
                  
                     

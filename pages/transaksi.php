@@ -198,23 +198,23 @@ else {   ?>
 
 		?>
 					<tr>
-                    <td><?php echo $kon['id_transaksi']; ?></td>
-						<td ><?php echo $kon['tgl_tansaksi']; ?></td>
-                        <td ><?php echo $bar['nama_p']; ?></td>
-                        
+                    <td><b><?php echo $kon['id_transaksi']; ?></td>
+						<td ><b><?php echo $kon['tgl_tansaksi']; ?></td>
+                        <td ><b><?php echo $bar['nama_p']; ?></td>
+                  
 
                         <?php
 
 
 
 if($level == 'penjual' ) {   ?>     
-<td ><?php echo $userb['nama_lengkap']; ?></td>
+<td ><b><?php echo $userb['nama_lengkap']; ?></td>
 <?php
 
 
 
 if($kon['status'] == 'diterima') {     ?>    
-    <td ><p>Pembayaran telah diterima admin. Mohon Segera melakuan pengiriman produk ke pembeli.</p>
+    <td ><b>	<p class="text-dark">Status : <p class="text-primary">Pembayaran telah diterima admin. Mohon Segera melakuan pengiriman produk ke pembeli.</p></p>
                                     <a href ="upload_bukti.php?id_transaksi=<?php echo $kon ['id_transaksi']; ?>"
                                                                         >
                                                                         </a>
@@ -223,22 +223,23 @@ if($kon['status'] == 'diterima') {     ?>
 <?php }
 
 elseif($kon['status'] == 'terkirim' ) {   ?>     
-    <td><p>Pembeli Sudah mengirim bukti pembayaran ke admin <br> Tunggu admin mengkonfirmasi pembayaran dari pembeli</p>
+    <td><b><p class="text-dark">Status : <p class="text-danger">Pembeli Sudah mengirim bukti pembayaran ke admin <br> Tunggu admin mengkonfirmasi pembayaran dari pembeli</p></p>
                                    
                                                 </td>
 
 <?php }
 
 elseif($kon['status'] == 'bayar' ) {   ?>     
-     <td>Pembeli belum mengirim bukti pembayaran ke admin
-                                                </td>
+     <td><b><p class="text-dark">Status : <p class="text-warning">Pembeli belum mengirim bukti pembayaran ke admin</p>
+</td>
 
                                                 <?php }
 
 elseif($kon['status'] == 'selesai' ) {   ?>     
-      <td><p>Barang Sudah diterima, Transaksi selesai</p>
+      <td><b><p class="text-dark">Status : <p class="text-success">Barang Sudah diterima, Transaksi selesai. Tunggu admin mentransfer pembayaran</p></p>
+
                                    
-                                   </td>
+ </td>
 <?php  } ?>  
 
 
@@ -258,14 +259,14 @@ elseif($kon['status'] == 'selesai' ) {   ?>
 <?php }
 
 else {   ?>     
-    <td ><?php echo $userp['nama_lengkap']; ?></td>
+    <td ><b><?php echo $userp['nama_lengkap']; ?></td>
 
     <?php
 
 
 
 if($kon['status'] == 'diterima') {     ?>    
-    <td ><p>Pembayaran telah diterima admin. Admin akan Segera menghubungi penjual untuk segera mengirim barang.</p>
+    <td ><b>	<p class="text-dark">Status : <p class="text-primary">Pembayaran telah diterima admin. Admin akan Segera menghubungi penjual untuk segera mengirim barang.</p></p>
                                     <a href ="aksi/aksi_selesai.php?id_transaksi=<?php echo $kon ['id_transaksi']; ?>"
                                                                         ><button class="btn btn-primary"> Barang Sudah Diterima
                                                                             </button>
@@ -275,14 +276,14 @@ if($kon['status'] == 'diterima') {     ?>
 <?php }
 
 elseif($kon['status'] == 'terkirim' ) {   ?>     
-    <td><p>Anda Sudah Melakukan Pembayaran.<br> Tunggu admin mengkonfirmasi pembayaran anda</p>
+    <td><b><p class="text-dark">Status : <p class="text-danger">Anda Sudah Melakukan Pembayaran.<br> Tunggu admin mengkonfirmasi pembayaran anda</p></p>
                                    
                                                 </td>
 
 <?php }
 
 elseif($kon['status'] == 'bayar' ) {   ?>     
-     <td>Batas Waktu <p class="text-danger"><?php echo $kon['tgl_tenggat']; ?></p> <br>
+     <td><b><p class="text-dark">Status : <p class="text-warning">Batas Waktu <p class="text-danger"><?php echo $kon['tgl_tenggat']; ?></p></p> <br>
                                     <a href ="upload_bukti.php?id_transaksi=<?php echo $kon ['id_transaksi']; ?>"
                                                                         ><button class="btn btn-danger">Upload bukti pembayaran
                                                                             </button>
@@ -291,13 +292,13 @@ elseif($kon['status'] == 'bayar' ) {   ?>
  <?php }
 
 elseif($kon['status'] == 'ditolak' ) {   ?>     
-      <td><p>Maaf pembayaran ditolak</p>
+      <td><b><p class="text-dark">Status : <p class="text-danger">Maaf pembayaran ditolak</p></p>
                                    
                                    </td>
  <?php }
 
 elseif($kon['status'] == 'selesai' ) {   ?>     
-      <td><p>Barang Sudah diterima, Transaksi selesai</p>
+      <td><b><p class="text-dark">Status : <p class="text-success">Barang Sudah diterima, Transaksi selesai</p></p>
                                    
                                    </td>
 <?php  } ?>  
