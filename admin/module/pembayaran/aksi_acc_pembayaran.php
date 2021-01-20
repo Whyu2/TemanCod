@@ -20,11 +20,5 @@ $status = 'diterima';
   }else {
       echo "<script> alert ('Transaksi gagal disetujui');</script>";
   }
-
-
-
-
-
-    
-    }
+ }
 

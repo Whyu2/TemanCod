@@ -1,7 +1,7 @@
 <?php
 
 include "lib/koneksi.php";
-$sid = session_id();
+
   $id_produk = $_GET ['id_produk'];
   $queryproduk = mysqli_query ($koneksi, "select * from tbl_produk WHERE id_produk = '$id_produk'");
   $hasilQuery = mysqli_fetch_array($queryproduk);

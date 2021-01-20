@@ -67,19 +67,20 @@ include "lib/koneksi.php";
                         $level =    $hasilQueryuser['level'];                      
                      ?>
 
-<?php
+                        <?php
 
 
 
-if($level == 'penjual' ) {   ?>     
-     
+                        if($level == 'penjual' ) {   ?>     
+                            
 
-<?php }
+                        <?php }
 
-else {   ?>   
-<br>  
-     <button   type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalt"><i class="fas fa-cart-plus mr-2"></i><h5><b>Transaksi dengan rekber ?</b></h5></button>      <?php } ?>
-<?php  } ?>  
+                        else {   ?>   
+                        <br>  
+                            <button   type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalt"><i class="fas fa-cart-plus mr-2">
+                            </i><h5><b>Transaksi dengan rekber ?</b></h5></button>      <?php } ?>
+                        <?php  } ?>  
                                       
                                     </div>
                                 </div>
@@ -284,7 +285,7 @@ else {   ?>
                 <!-- Main Content -->
             </div>
 
-            <div class="modal fade" id="modalt" role="dialog" arialabelledby = "modalLabel" aria-hidden="true">
+                                                <div class="modal fade" id="modalt" role="dialog" arialabelledby = "modalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -322,7 +323,8 @@ else {   ?>
                                                         
 
                                                             </ol>
-                                                            <a href="konfirm.php?id_produk=  <?= $id_produk?> " class="btn btn-danger   fas fa-arrow-circle-right " aria-hidden="true" role="button"><b>  lanjutkan Transaksi</b></a>
+                                                            <a href="konfirm.php?id_produk=  <?= $id_produk?> " class="btn btn-danger   fas fa-arrow-circle-right " aria-hidden="true" role="button"><b>  
+                                                            lanjutkan Transaksi</b></a>
                                                     
                                                                 </div>
                                                             </div>

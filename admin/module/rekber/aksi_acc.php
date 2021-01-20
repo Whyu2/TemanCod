@@ -14,9 +14,6 @@ $id_produk = $_POST['id_produk'];
 $tgl = date('Y-m-d');
 
 
-
-    
-    
     $queryedit =mysqli_query($koneksi, "UPDATE tbl_konfirmasi SET status_konfirmasi='$status' WHERE id_konfirmasi='$id_konfirmasi'");
 
     if ($queryedit){     

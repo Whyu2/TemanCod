@@ -28,7 +28,8 @@ $tambah_tanggal = mktime(0,0,0,date('m')+0,date('d')+1,date('Y')+0); // angka 2,
 
     
     
-$querytambah = mysqli_query($koneksi, "INSERT INTO tbl_transaksi (id_konfirmasi,id_pembeli,id_penjual,id_produk,tgl_tansaksi,tgl_tenggat,status ) VALUES ('$id_konfirmasi','$id_pembeli','$id_penjual','$id_produk','$tgl','$tambah','$status')");
+$querytambah = mysqli_query($koneksi, "INSERT INTO tbl_transaksi (id_konfirmasi,id_pembeli,id_penjual,id_produk,tgl_tansaksi,tgl_tenggat,status ) 
+VALUES ('$id_konfirmasi','$id_pembeli','$id_penjual','$id_produk','$tgl','$tambah','$status')");
 
     if ($querytambah){
         echo "<script> alert ('Transaksi berhasil disetujui '); window.location ='../../adminweb.php?module=rekber';</script>";

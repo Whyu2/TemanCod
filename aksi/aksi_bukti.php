@@ -23,11 +23,11 @@ $query = mysqli_query($koneksi, "UPDATE tbl_transaksi SET
 										 id_transaksi = '$id_transaksi'");
 										 
 
-										 if ($query){
-											echo "<script> alert ('Bukti pembayaran berhasil di kirim ke admin'); window.location = '../upload_bukti.php?id_transaksi= $id_transaksi' </script>";
-										}else {
-											echo "<script> alert ('Bukti pembayaran gagal di kirim ke admin'); window.location = '../upload_bukti.php?id_transaksi= $id_transaksi' </script>";
-										}
+ if ($query){
+echo "<script> alert ('Bukti pembayaran berhasil di kirim ke admin'); window.location = '../upload_bukti.php?id_transaksi= $id_transaksi' </script>";
+}else {
+echo "<script> alert ('Bukti pembayaran gagal di kirim ke admin'); window.location = '../upload_bukti.php?id_transaksi= $id_transaksi' </script>";
+}
 
 
 
