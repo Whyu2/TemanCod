@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 10 Jan 2021 pada 08.14
+-- Waktu pembuatan: 19 Jan 2021 pada 05.52
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.4
 
@@ -125,7 +125,6 @@ CREATE TABLE `tbl_konfirmasi` (
 
 INSERT INTO `tbl_konfirmasi` (`id_konfirmasi`, `id_user`, `status_konfirmasi`, `id_produk`, `date`) VALUES
 (62, 4, 'bayar', 35, '2020-12-12'),
-(67, 4, 'bayar', 37, '2020-12-15'),
 (69, 6, 'bayar', 37, '2020-12-18');
 
 -- --------------------------------------------------------
@@ -186,7 +185,6 @@ CREATE TABLE `tbl_transaksi` (
 
 INSERT INTO `tbl_transaksi` (`id_transaksi`, `id_konfirmasi`, `id_pembeli`, `id_penjual`, `id_produk`, `tgl_tansaksi`, `tgl_tenggat`, `bukti_bayar`, `keterangan`, `status`) VALUES
 (102, 62, 4, 2, 35, '2020-12-12', '2020-12-13', 'Struk ATM Untuk Modus Tipu2.jpg', 'Mohon barang segera dikirimm\r\n                                        ', 'selesai'),
-(107, 67, 4, 3, 37, '2020-12-15', '2020-12-16', '20201207_233048.jpg', 'Mohon barang dikirimmmm\r\n                                        ', 'selesai'),
 (108, 69, 6, 3, 37, '2020-12-18', '2020-12-19', NULL, NULL, 'bayar');
 
 -- --------------------------------------------------------
